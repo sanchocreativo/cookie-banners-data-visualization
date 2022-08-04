@@ -1,0 +1,22 @@
+$xs: 0;
+$xxsm: 450px;
+$xsm: 530px;
+$sm: 576px;
+$md: 767px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1900px;
+
+
+.container{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: $lg) {
+        flex-basis: 100%;
+    }
+}
+.title{
+    font-size: 42px;
+}
