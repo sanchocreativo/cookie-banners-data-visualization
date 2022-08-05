@@ -1,0 +1,15 @@
+@import "../../../styles/variables.module.scss";
+
+.container{
+    display: flex;
+    & .containerHeader{
+        flex-basis: 20%;
+        @media (min-width: $lg) {
+            margin-right: 2rem;
+        }
+    }
+    & .containerFilters{
+        flex-basis: 80%;
+    }
+
+}

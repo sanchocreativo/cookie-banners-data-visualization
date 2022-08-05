@@ -5,7 +5,7 @@ const ConsentBannerPerformance = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.tab}>Performance</div>
+      <div className={styles.tag}>Performance</div>
       <h2 className={styles.title}>
         Consent Banner Performance
       </h2>

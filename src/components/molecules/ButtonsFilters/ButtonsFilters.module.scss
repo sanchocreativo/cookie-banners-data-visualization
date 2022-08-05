@@ -1,0 +1,27 @@
+@import "../../../styles/variables.module.scss";
+
+.container{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: $lg) {
+        flex-basis: 100%;
+    }
+}
+.title{
+    font-size: 24px;
+    margin-bottom: 2rem;
+}
+.buttonContainer{
+    display: flex;
+    flex-direction: row;
+    & > *{
+        margin-right: 8px!important;
+    }
+}
+.imgAndDescription{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

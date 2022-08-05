@@ -1,12 +1,4 @@
-$xs: 0;
-$xxsm: 450px;
-$xsm: 530px;
-$sm: 576px;
-$md: 767px;
-$lg: 992px;
-$xl: 1200px;
-$xxl: 1900px;
-
+@import "../../../styles/variables.module.scss";
 
 .container{
     text-align: left;
@@ -19,4 +11,21 @@ $xxl: 1900px;
 }
 .title{
     font-size: 42px;
+}
+
+.tag {
+    display: flex;
+    background-color: white;
+    border: 1px solid rgb(29, 65, 83);
+    align-self: flex-start;
+    cursor: auto;
+    pointer-events: none;
+    font-family: IBM Plex Serif, serif;
+    font-weight: 600;
+    padding: 8px;
+    justify-content: center;
+    color: #254051;
+    border-radius: 20px;
+    width: 100px;
+    font-size: 14px;
 }
