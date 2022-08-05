@@ -20,8 +20,45 @@
         margin-right: 8px!important;
     }
 }
+
+.title{
+    font-family: IBM Plex Serif, serif;
+    font-weight: 300;
+    color: #254051;
+}
 .imgAndDescription{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
+    text-align: left;
+    flex-wrap: wrap;
+
+    & .imgBanner{
+        display: flex;
+        flex-basis: 60%;
+    }
+    & .bannerDescription{
+        margin-top: 3rem;
+        @media (min-width: $lg) {
+            max-width: 300px;
+        }
+    }
+
+ 
+
+    & .imgCountry{
+        margin-right: 8px;
+        min-width: 200px;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: row;
+        & img {
+            width: 50px;
+        }
+        & p{
+            margin-left: 8px;
+            font-size: 12px;
+            color: rgb(83, 94, 97);
+        }
+    }
 }
