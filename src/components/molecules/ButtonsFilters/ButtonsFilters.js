@@ -7,6 +7,7 @@ import closeDisagree from "../../../assets/images/close-disagree.svg"
 import continueWithoutAgree from "../../../assets/images/continue-without-agree.svg"
 import noDisagree from "../../../assets/images/no-disagree.svg"
 import CountriesContext from "../../../context";
+import CountriesFilter from "../CountriesFilter/CountriesFilter";
 
 const ButtonsFilters = () => {
   const countries = useContext(CountriesContext);
@@ -19,20 +20,20 @@ const ButtonsFilters = () => {
     { id: 5, value: 'No disagree action', active: false, imgSrc: noDisagree, text: 'First widespread consent notice format, slowly being banned because of its lack of transparency.' },
   ];
 
-  const [state, setState] = useState(initialState);
+  const [buttonsState, setButtonsState] = useState(initialState);
   const [image, setImage] = useState(initialState[0]);
   const [parsedCountries, parseCountries] = useState({});
   const [filteredCountries, setFilteredCountries] = useState({});
 
   const onClick = (e) => {
-    let temp_state = [...state];
+    let temp_state = [...buttonsState];
     let indx = temp_state.findIndex(x => String(x.id) === String(e));
     let temp_element = { ...temp_state[indx] };
     temp_element.active = true;
     temp_state.map(val => val.active = false);
     temp_state[indx] = temp_element;
     setImage(temp_element);
-    setState(temp_state);
+    setButtonsState(temp_state);
   }
 
   useEffect(() => {
@@ -80,7 +81,7 @@ const ButtonsFilters = () => {
         Choose a consent banner format
       </h6>
       <div className={styles.buttonContainer}>
-        {state.map((btn) => {
+        {buttonsState.map((btn) => {
           return (
             <Button text={btn.value} key={btn.id} id={btn.id} isActive={btn.active} onClick={onClick} />
           )
@@ -91,10 +92,9 @@ const ButtonsFilters = () => {
         <img className={styles.imgBanner} src={image.imgSrc} alt={image.value} loading="lazy" />
         <p className={styles.bannerDescription} >{image.text}</p>
       </div>
-      <p className={styles.title}>{'Countries with this consent:'}</p>
+      {/* <p className={styles.title}>{'Countries with this consent:'}</p>
 
       <div className={styles.imgAndDescription}>
-        
         {filteredCountries && filteredCountries.length > 0 &&
           filteredCountries.map((val) => (
             <div className={styles.imgCountry} key={val.Country}>
@@ -107,12 +107,15 @@ const ButtonsFilters = () => {
             </div>
           ))
         }
+      </div>
+
+      {filteredCountries && !filteredCountries.length &&
+        <div className={styles.imgCountry}>
+          <p >{'No countries match with this type of banner'}</p>
         </div>
-        {filteredCountries && !filteredCountries.length &&
-          <div className={styles.imgCountry}>
-            <p >{'No countries match with this type of banner'}</p>
-          </div>
-        }
+      } */}
+
+      <CountriesFilter filteredCountries={filteredCountries} buttonsState={buttonsState}></CountriesFilter>
     </div>
   );
 };

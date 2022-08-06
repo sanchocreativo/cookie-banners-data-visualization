@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './IntroHeader.module.scss';
 
-const ConsentBannerPerformance = () => {
+const IntroHeader = () => {
 
   return (
     <div className={styles.container}>
@@ -18,4 +18,4 @@ const ConsentBannerPerformance = () => {
   );
 };
 
-export default ConsentBannerPerformance;
+export default IntroHeader;
