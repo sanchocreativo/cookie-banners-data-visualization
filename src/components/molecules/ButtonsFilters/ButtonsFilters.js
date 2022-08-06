@@ -22,7 +22,7 @@ const ButtonsFilters = () => {
 
   const [buttonsState, setButtonsState] = useState(initialState);
   const [image, setImage] = useState(initialState[0]);
-  const [parsedCountries, parseCountries] = useState({});
+  const [parsedCountries, setParseCountries] = useState({});
   const [filteredCountries, setFilteredCountries] = useState({});
 
   const onClick = (e) => {
@@ -64,7 +64,13 @@ const ButtonsFilters = () => {
           ...countries.countriesExtraInfo.find((item) => (item.countryName === itm.Country) && item),
           ...itm
         }));
-      parseCountries(mergeById);
+
+        let europeanCountries = countries.countriesExtraInfo.filter(val=> val.continentName === 'Europe').map(europeanCountries => {
+          europeanCountries['Banner format'] = 'Disagree button';
+          return europeanCountries
+        })
+
+      setParseCountries([...mergeById, ...europeanCountries]);
 
     }
   }, [countries]);
@@ -115,7 +121,7 @@ const ButtonsFilters = () => {
         </div>
       } */}
 
-      <CountriesFilter filteredCountries={filteredCountries} buttonsState={buttonsState}></CountriesFilter>
+      <CountriesFilter parsedCountries={parsedCountries} buttonsState={buttonsState}></CountriesFilter>
     </div>
   );
 };

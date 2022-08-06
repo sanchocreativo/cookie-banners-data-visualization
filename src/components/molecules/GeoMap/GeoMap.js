@@ -4,7 +4,7 @@ import useResizeObserver from "../../../hooks/useResizeObserver";
 
 
 
-function GeoChart({ data, property }) {
+function GeoChart({ data, property, parsedCountries }) {
   const svgRef = useRef();
   const wrapperRef = useRef();
   const dimensions = useResizeObserver(wrapperRef);
@@ -13,13 +13,7 @@ function GeoChart({ data, property }) {
   useEffect(() => {
     const svg = select(svgRef.current);
 
-    const minProp = min(data.features, feature => feature.properties[property]);
-    const maxProp = max(data.features, feature => feature.properties[property]);
-    const colorScale = scaleLinear()
-      .domain([minProp, maxProp])
-      .range(["#ccc", "red"]);
 
- 
     const { width, height } =
       dimensions || wrapperRef.current.getBoundingClientRect();
 
@@ -27,39 +21,50 @@ function GeoChart({ data, property }) {
       .fitSize([width, height], selectedCountry || data)
       .precision(100);
 
- 
+
     const pathGenerator = geoPath().projection(projection);
 
-    console.log(data.features.properties);
-    
-    svg
-      .selectAll(".country")
-      .data(data.features)
-      .join("path")
-      .on("click", (event, feature) => {
-        setSelectedCountry(selectedCountry === feature ? null : feature);
-      })
-      .attr("class", "country")
-      .transition()
-      .attr("fill", feature => colorScale(feature.properties[property]))
-      .attr("d", feature => pathGenerator(feature));
 
-  
+    if (parsedCountries && parsedCountries.length > 0) {
+      svg
+        .selectAll(".country")
+        .data(data.features)
+        .join("path")
+        .on("click", (event, feature) => {
+          setSelectedCountry(selectedCountry === feature ? null : feature);
+        })
+        .attr("class", "country")
+        .transition()
+        .attr("fill", feature => {
+          let color = parsedCountries.filter(val => val.countryCode === feature.properties.iso_a2);
+          return color && color.length > 0 ? color[0].color : "#CCCCCC"
+        })
+        .attr("d", feature => pathGenerator(feature));
+    
+
     svg
       .selectAll(".label")
       .data([selectedCountry])
       .join("text")
       .attr("class", "label")
       .text(
-        feature =>
-          feature &&
+        feature => {
+          let value;
+          if (feature && feature.properties && feature.properties.iso_a2){
+            value = parsedCountries.filter(val => val.countryCode === feature.properties.iso_a2);
+          }
+          let checkValue = value && value.length > 0 ? value[0]['Banner format'] : "No Data Available"
+          let parse = feature &&
           feature.properties.name +
-            ": " +
-            feature.properties[property].toLocaleString()
+          ": " 
+          return parse ? parse + checkValue : ""
+
+        }
       )
       .attr("x", 10)
       .attr("y", 25);
-  }, [data, dimensions, property, selectedCountry]);
+    }
+  }, [data, dimensions, property, selectedCountry, parsedCountries]);
 
   return (
     <div ref={wrapperRef} style={{ marginBottom: "2rem" }}>
