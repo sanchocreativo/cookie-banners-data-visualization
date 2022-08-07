@@ -1,10 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
-import { select, geoPath, geoMercator, min, max, scaleLinear } from "d3";
+import { select, geoPath, geoMercator } from "d3";
 import useResizeObserver from "../../../hooks/useResizeObserver";
 
-
-
-function GeoChart({ data, property, parsedCountries }) {
+function GeoChart({ data, parsedCountries }) {
   const svgRef = useRef();
   const wrapperRef = useRef();
   const dimensions = useResizeObserver(wrapperRef);
@@ -64,7 +62,7 @@ function GeoChart({ data, property, parsedCountries }) {
       .attr("x", 10)
       .attr("y", 25);
     }
-  }, [data, dimensions, property, selectedCountry, parsedCountries]);
+  }, [data, dimensions, selectedCountry, parsedCountries]);
 
   return (
     <div ref={wrapperRef} style={{ marginBottom: "2rem" }}>

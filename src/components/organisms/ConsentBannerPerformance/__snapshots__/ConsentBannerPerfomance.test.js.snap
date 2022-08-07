@@ -1,0 +1,244 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ConsentBannerPerformance correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div
+      class="containerHeader"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="tag"
+        >
+          Performance
+        </div>
+        <h2
+          class="title"
+        >
+          Consent Banner Performance
+        </h2>
+        <p>
+          Every website collects consent for cookies & trackers with different consent banner formats. These differences are determined by the various privacy regulations enacted in each country. The positive consent rate shows the percentage of users who selected “Agree” in the banner, over all the users that have replied to the consent notice.
+        </p>
+      </div>
+    </div>
+    <div
+      class="containerFilters"
+    >
+      <div
+        class="container"
+      >
+        <h6
+          class="title"
+        >
+          Choose a consent banner format
+        </h6>
+        <div
+          class="buttonContainer"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-RoundedButton-2"
+            id="1"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              Disagree button
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-RoundedButton-1"
+            id="2"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              Link + Close option
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-RoundedButton-1"
+            id="3"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              Close = disagree
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-RoundedButton-1"
+            id="4"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              Continue without agreeing link
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained makeStyles-RoundedButton-1"
+            id="5"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-label"
+            >
+              No disagree action
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <div
+          class="imgAndDescription"
+        >
+          <img
+            alt="Disagree button"
+            class="imgBanner"
+            loading="lazy"
+            src="disagree.svg"
+          />
+          <p
+            class="bannerDescription"
+          >
+            Best in class, the disagree action is explicit and transparent. This notice is compliant with most privacy laws worldwide such as GDPR, LGPD or PDPA.
+          </p>
+        </div>
+        <div
+          class="container"
+        >
+          <h6
+            class="title"
+          >
+            Consents type by Country
+          </h6>
+          <div
+            class="buttonContainer"
+          >
+            <div
+              class="tagContainer"
+            >
+              <span
+                class="tagColor"
+                style="background-color: rgb(230, 25, 75);"
+              />
+              <div
+                class="tag"
+                id="1"
+              >
+                Disagree button 
+              </div>
+            </div>
+            <div
+              class="tagContainer"
+            >
+              <span
+                class="tagColor"
+                style="background-color: rgb(128, 0, 0);"
+              />
+              <div
+                class="tag"
+                id="2"
+              >
+                Link + Close option 
+              </div>
+            </div>
+            <div
+              class="tagContainer"
+            >
+              <span
+                class="tagColor"
+                style="background-color: rgb(145, 30, 180);"
+              />
+              <div
+                class="tag"
+                id="3"
+              >
+                Close = disagree 
+              </div>
+            </div>
+            <div
+              class="tagContainer"
+            >
+              <span
+                class="tagColor"
+                style="background-color: rgb(67, 99, 216);"
+              />
+              <div
+                class="tag"
+                id="4"
+              >
+                Continue without agreeing link 
+              </div>
+            </div>
+            <div
+              class="tagContainer"
+            >
+              <span
+                class="tagColor"
+                style="background-color: rgb(60, 180, 75);"
+              />
+              <div
+                class="tag"
+                id="5"
+              >
+                No disagree action 
+              </div>
+            </div>
+            <div
+              class="tagContainer"
+            >
+              <span
+                class="tagColor"
+                style="background-color: rgb(204, 204, 204);"
+              />
+              <div
+                class="tag"
+                id="6"
+              >
+                No Data Available 
+              </div>
+            </div>
+          </div>
+          <div
+            class="container"
+          >
+            <div
+              style="margin-bottom: 2rem;"
+            >
+              <svg />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

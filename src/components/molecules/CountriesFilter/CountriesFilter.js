@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import styles from './CountriesFilter.module.scss';
 import GeoMapHandler from "../GeoMapHandler/GeoMapHandler";
 const CountriesFilter = ({ parsedCountries, buttonsState }) => {
@@ -15,19 +15,15 @@ const CountriesFilter = ({ parsedCountries, buttonsState }) => {
     return val
   });
 
-  const [countriesClicked, setCountriesClicked] = useState(parsedCountriesWithColors)
-
-  const onClick = () => {
-    // countriesClicked.filter()
-    // setCountriesClicked()
-  }
-
   return (
     <div className={styles.container}>
+       <h6 className={styles.title}>
+        Consents type by Country
+      </h6>
       <div className={styles.buttonContainer}>
         {withNoDataAvailable.map((btn) => {
           return (
-            <div className={styles.tagContainer} key={btn.id} onClick={onClick(btn.value)} >
+            <div className={styles.tagContainer} key={btn.id} >
               <span className={styles.tagColor} style={{ backgroundColor: btn.color }}></span>
               <div className={styles.tag} id={btn.id} >{btn.value} </div>
             </div>

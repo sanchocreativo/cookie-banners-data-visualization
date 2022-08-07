@@ -23,7 +23,6 @@ const ButtonsFilters = () => {
   const [buttonsState, setButtonsState] = useState(initialState);
   const [image, setImage] = useState(initialState[0]);
   const [parsedCountries, setParseCountries] = useState({});
-  const [filteredCountries, setFilteredCountries] = useState({});
 
   const onClick = (e) => {
     let temp_state = [...buttonsState];
@@ -75,12 +74,6 @@ const ButtonsFilters = () => {
     }
   }, [countries]);
 
-  useEffect(() => {
-    if (parsedCountries && parsedCountries.length) {
-      setFilteredCountries(parsedCountries.filter(val => val['Banner format'] === image.value));
-    }
-  }, [parsedCountries, image]);
-
   return (
     <div className={styles.container}>
       <h6 className={styles.title}>
@@ -98,29 +91,6 @@ const ButtonsFilters = () => {
         <img className={styles.imgBanner} src={image.imgSrc} alt={image.value} loading="lazy" />
         <p className={styles.bannerDescription} >{image.text}</p>
       </div>
-      {/* <p className={styles.title}>{'Countries with this consent:'}</p>
-
-      <div className={styles.imgAndDescription}>
-        {filteredCountries && filteredCountries.length > 0 &&
-          filteredCountries.map((val) => (
-            <div className={styles.imgCountry} key={val.Country}>
-              <img
-                alt={val.countryName}
-                src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${val.countryCode}.svg`}
-                loading="lazy"
-              />
-              <p >{val.countryName}</p>
-            </div>
-          ))
-        }
-      </div>
-
-      {filteredCountries && !filteredCountries.length &&
-        <div className={styles.imgCountry}>
-          <p >{'No countries match with this type of banner'}</p>
-        </div>
-      } */}
-
       <CountriesFilter parsedCountries={parsedCountries} buttonsState={buttonsState}></CountriesFilter>
     </div>
   );
