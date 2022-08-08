@@ -1,3 +1,5 @@
+Cookie Banner Data Visualization. Using React, Material UI, scss, D3.js, react testing library and jest. 
+
 ![Alt text](https://i.imgur.com/mPe6aKJ.png?raw=true "Title")
 
 
